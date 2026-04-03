@@ -1,0 +1,261 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    /* Steff Cloud Orange & White Theme - Based on Invoice Design */
+    --background: 30 50% 98%;
+    --foreground: 24 10% 10%;
+    --card: 0 0% 100%;
+    --card-foreground: 24 10% 10%;
+    --popover: 0 0% 100%;
+    --popover-foreground: 24 10% 10%;
+    --primary: 24 95% 53%;
+    --primary-foreground: 0 0% 100%;
+    --secondary: 30 30% 96%;
+    --secondary-foreground: 24 10% 10%;
+    --muted: 30 20% 94%;
+    --muted-foreground: 24 10% 40%;
+    --accent: 24 95% 53%;
+    --accent-foreground: 0 0% 100%;
+    --destructive: 0 84.2% 60.2%;
+    --destructive-foreground: 0 0% 98%;
+    --border: 30 20% 88%;
+    --input: 30 20% 88%;
+    --ring: 24 95% 53%;
+    --radius: 0.75rem;
+    
+    /* Custom Steff Cloud Colors */
+    --steff-orange: #F97316;
+    --steff-orange-light: #FB923C;
+    --steff-orange-dark: #EA580C;
+    --steff-cream: #FFF8F3;
+    --steff-cream-dark: #FEF3E8;
+    --steff-black: #1A1A1A;
+    --steff-gray: #6B7280;
+    --steff-gray-light: #9CA3AF;
+    
+    /* Sidebar */
+    --sidebar-background: 0 0% 98%;
+    --sidebar-foreground: 240 5.3% 26.1%;
+    --sidebar-primary: 240 5.9% 10%;
+    --sidebar-primary-foreground: 0 0% 98%;
+    --sidebar-accent: 240 4.8% 95.9%;
+    --sidebar-accent-foreground: 240 5.9% 10%;
+    --sidebar-border: 220 13% 91%;
+    --sidebar-ring: 217.2 91.2% 59.8%;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+  
+  html {
+    scroll-behavior: smooth;
+  }
+  
+  body {
+    @apply bg-background text-foreground antialiased;
+    /* System font stack - uses device default fonts */
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, 'Noto Sans', sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol', 'Noto Color Emoji';
+  }
+}
+
+@layer utilities {
+  /* Custom gradient backgrounds */
+  .bg-steff-gradient {
+    background: linear-gradient(135deg, var(--steff-cream) 0%, var(--steff-cream-dark) 100%);
+  }
+  
+  .bg-orange-gradient {
+    background: linear-gradient(135deg, var(--steff-orange) 0%, var(--steff-orange-dark) 100%);
+  }
+  
+  /* Wave decoration */
+  .wave-decoration {
+    position: relative;
+    overflow: hidden;
+  }
+  
+  .wave-decoration::before,
+  .wave-decoration::after {
+    content: '';
+    position: absolute;
+    width: 300px;
+    height: 300px;
+    border-radius: 50%;
+    background: rgba(249, 115, 22, 0.08);
+    pointer-events: none;
+  }
+  
+  .wave-decoration::before {
+    top: -150px;
+    right: -100px;
+  }
+  
+  .wave-decoration::after {
+    bottom: -150px;
+    left: -100px;
+  }
+  
+  /* Orange blob shapes like in invoice */
+  .orange-blob {
+    position: absolute;
+    border-radius: 50%;
+    background: linear-gradient(135deg, rgba(249, 115, 22, 0.15) 0%, rgba(251, 146, 60, 0.08) 100%);
+    filter: blur(40px);
+    pointer-events: none;
+  }
+  
+  /* Text gradient */
+  .text-gradient-orange {
+    background: linear-gradient(135deg, var(--steff-orange) 0%, var(--steff-orange-dark) 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+  }
+  
+  /* Hover lift effect */
+  .hover-lift {
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+  }
+  
+  .hover-lift:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 12px 40px rgba(249, 115, 22, 0.15);
+  }
+  
+  /* Card hover effect */
+  .card-hover {
+    transition: all 0.3s ease;
+  }
+  
+  .card-hover:hover {
+    border-color: var(--steff-orange);
+    box-shadow: 0 8px 30px rgba(249, 115, 22, 0.12);
+  }
+  
+  /* Enhanced card shadows */
+  .card-shadow {
+    box-shadow: 
+      0 4px 6px -1px rgba(0, 0, 0, 0.05),
+      0 10px 15px -3px rgba(0, 0, 0, 0.08),
+      0 20px 25px -5px rgba(249, 115, 22, 0.06);
+  }
+  
+  .card-shadow-lg {
+    box-shadow: 
+      0 10px 15px -3px rgba(0, 0, 0, 0.08),
+      0 20px 25px -5px rgba(0, 0, 0, 0.06),
+      0 25px 50px -12px rgba(249, 115, 22, 0.12);
+  }
+  
+  .card-shadow-xl {
+    box-shadow: 
+      0 20px 25px -5px rgba(0, 0, 0, 0.1),
+      0 30px 40px -10px rgba(0, 0, 0, 0.08),
+      0 35px 60px -15px rgba(249, 115, 22, 0.15);
+  }
+  
+  .card-shadow-hover {
+    transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+    box-shadow: 
+      0 4px 6px -1px rgba(0, 0, 0, 0.05),
+      0 10px 15px -3px rgba(0, 0, 0, 0.08);
+  }
+  
+  .card-shadow-hover:hover {
+    transform: translateY(-8px);
+    box-shadow: 
+      0 20px 25px -5px rgba(0, 0, 0, 0.1),
+      0 30px 40px -10px rgba(0, 0, 0, 0.08),
+      0 35px 60px -15px rgba(249, 115, 22, 0.2);
+  }
+  
+  /* Button shine effect */
+  .btn-shine {
+    position: relative;
+    overflow: hidden;
+  }
+  
+  .btn-shine::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(90deg, transparent, rgba(255,255,255,0.3), transparent);
+    transition: left 0.5s ease;
+  }
+  
+  .btn-shine:hover::after {
+    left: 100%;
+  }
+  
+  /* Scrollbar styling */
+  ::-webkit-scrollbar {
+    width: 8px;
+  }
+  
+  ::-webkit-scrollbar-track {
+    background: var(--steff-cream);
+  }
+  
+  ::-webkit-scrollbar-thumb {
+    background: var(--steff-orange);
+    border-radius: 4px;
+  }
+  
+  ::-webkit-scrollbar-thumb:hover {
+    background: var(--steff-orange-dark);
+  }
+  
+  /* Animation utilities */
+  @keyframes float {
+    0%, 100% { transform: translateY(0px); }
+    50% { transform: translateY(-10px); }
+  }
+  
+  @keyframes pulse-glow {
+    0%, 100% { box-shadow: 0 0 20px rgba(249, 115, 22, 0.3); }
+    50% { box-shadow: 0 0 40px rgba(249, 115, 22, 0.6); }
+  }
+  
+  @keyframes slide-up {
+    from { opacity: 0; transform: translateY(20px); }
+    to { opacity: 1; transform: translateY(0); }
+  }
+  
+  @keyframes fade-in {
+    from { opacity: 0; }
+    to { opacity: 1; }
+  }
+  
+  .animate-float {
+    animation: float 3s ease-in-out infinite;
+  }
+  
+  .animate-pulse-glow {
+    animation: pulse-glow 2s ease-in-out infinite;
+  }
+  
+  .animate-slide-up {
+    animation: slide-up 0.6s ease-out forwards;
+  }
+  
+  .animate-fade-in {
+    animation: fade-in 0.5s ease-out forwards;
+  }
+  
+  /* Stagger animation delays */
+  .stagger-1 { animation-delay: 0.1s; }
+  .stagger-2 { animation-delay: 0.2s; }
+  .stagger-3 { animation-delay: 0.3s; }
+  .stagger-4 { animation-delay: 0.4s; }
+  .stagger-5 { animation-delay: 0.5s; }
+  .stagger-6 { animation-delay: 0.6s; }
+}

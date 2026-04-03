@@ -1,0 +1,7 @@
+name = "steffcloud"
+compatibility_date = "2024-09-23"
+pages_build_output_dir = "./dist"
+
+# Uncomment and configure if you need environment variables
+# [vars]
+# API_URL = "https://api.example.com"
